@@ -1,28 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/BookSlice';
 
-const BookItem = () => (
-  <div>
+const BookItem = ({ book }) => {
+  const { id, title, author } = book;
+  const dispatch = useDispatch();
+
+  return (
     <li>
-      Atomic Habits
-      <span>James Clear</span>
-      <button type="button">Delete</button>
+      <div className="book">
+        <span className="title">{title}</span>
+        <span className="author">{author}</span>
+      </div>
+      <button
+        type="submit"
+        className="removeBook"
+        onClick={() => dispatch(removeBook(id))}
+      >
+        Remove
+      </button>
     </li>
-    <li>
-      The Spooks secret
-      <span>Joseph Delaney</span>
-      <button type="button">Delete</button>
-    </li>
-    <li>
-      Alice in wonderland
-      <span>Lewis carrol</span>
-      <button type="button">Delete</button>
-    </li>
-    <li>
-      Pride and Prejudice
-      <span>Jane Austen</span>
-      <button type="button">Delete</button>
-    </li>
-  </div>
-);
+  );
+};
+BookItem.propTypes = {
+  book: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
 
 export default BookItem;
