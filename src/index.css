@@ -31,10 +31,17 @@ nav {
 }
 
 .header {
-  color: var(--azure);
-  font-size: 1.875rem;
+  width: 15rem;
+  height: 2.313rem;
+  margin: 0.375rem 2.938rem 0.125rem 0;
+  font-family: Montserrat, sans-serif;
+  font-size: 2rem;
   font-weight: bold;
-  font-family: var(--font-mont);
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: var(--azure);
 }
 
 nav ul {
