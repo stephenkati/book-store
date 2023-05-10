@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/BookSlice';
+import { uploadBook } from '../redux/books/BookSlice';
 
 const AddBook = () => {
   const dispatch = useDispatch();
@@ -15,41 +15,36 @@ const AddBook = () => {
       author,
       category: 'Fiction',
     };
-    if (title && author) {
-      dispatch(addBook(bookInfo));
-    }
+    dispatch(uploadBook(bookInfo));
     setTitle('');
     setAuthor('');
   };
 
   return (
-    <div>
-      <form id="form">
-        <input
-          type="text"
-          placeholder="Book title..."
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Book Author"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        />
-        <button
-          type="button"
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(handleSubmit);
-          }}
-        >
-          ADD BOOK
-        </button>
-      </form>
-    </div>
+    <form id="form">
+      <input
+        type="text"
+        placeholder="Book title..."
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        required
+      />
+      <input
+        type="text"
+        placeholder="Book Author"
+        value={author}
+        onChange={(e) => setAuthor(e.target.value)}
+        required
+      />
+      <input
+        type="submit"
+        value="ADD BOOK"
+        onClick={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      />
+    </form>
   );
 };
 
