@@ -127,7 +127,7 @@ In order to run this project you need:
 
 -Browser
 
-
+###########################################
 ### Setup
 
 Clone this repository to your desired folder:
@@ -250,5 +250,5 @@ No presentation done yet.
 
 This project is [MIT](/LICENSE.md) licensed.
 
-
+THANK YOU
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
